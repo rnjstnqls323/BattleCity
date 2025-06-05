@@ -109,7 +109,12 @@ typedef function<void()> Event;
 #include "Objects/Manger/DataManager.h"
 #include "Objects/Manger/EventManager.h"
 
-#include "Objects/TileGame/EditTile.h"
+#include "Objects/BattleCity/EditTiles.h"
+
+#include "Objects/BattleCity/Character/CharacterAnimation.h"
+#include "Objects/BattleCity/Character/Character.h"
+
+
 
 #include "Scenes/Scene.h"
 #include "Framework/Manager/SceneManager.h"
