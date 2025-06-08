@@ -34,6 +34,7 @@ protected:
 
 	float speed = 100.0f;
 
+	MatrixBuffer* worldBuffer;
 	CharacterState curState = Idle;
 	CharacterAnimation* animation;
 	Transform* animationTransform;

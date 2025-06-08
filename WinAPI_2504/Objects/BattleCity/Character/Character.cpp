@@ -1,18 +1,21 @@
 #include "Framework.h"
 
-Character::Character()
+Character::Character():RectCollider({20,20})
 {
 	animation = new CharacterAnimation();
 	animationTransform = new Transform();
 
 	animationTransform->SetParent(this);
 	animationTransform->UpdateWorld();
+
+	worldBuffer = new MatrixBuffer();
 }
 
 Character::~Character()
 {
 	delete animation;
 	delete animationTransform;
+	delete worldBuffer;
 }
 
 void Character::Update()
@@ -20,6 +23,7 @@ void Character::Update()
 	UpdateAnimation();
 	Move();
 	UpdateWorld();
+	animationTransform->UpdateWorld();
 }
 
 void Character::Render()
@@ -27,7 +31,12 @@ void Character::Render()
 	if (isDead)
 		return;
 	else
+	{
+		worldBuffer->Set(animationTransform->GetWorld());
+		worldBuffer->SetVS(0);
+
 		animation->Render(curState);
+	}
 }
 
 void Character::Move()

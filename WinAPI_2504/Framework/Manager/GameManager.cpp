@@ -1,15 +1,17 @@
 #include "Framework.h"
 
 #include "Scenes/TileEditScene.h"
+#include "Scenes/PlayScene.h"
 
 GameManager::GameManager()
 {
 	Create();
 		
 
-	SCENE->AddScene("Game", new TileEditScene());
+	SCENE->AddScene("Edit", new TileEditScene());
+	SCENE->AddScene("Game", new PlayScene());
 
-	SCENE->ChangeScene("Game");
+	SCENE->ChangeScene("Edit");
 }
 
 GameManager::~GameManager()

@@ -159,7 +159,22 @@
     <ClInclude Include="Objects\BattleCity\Character\Character.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\BattleCity\EditTiles.h">
+    <ClInclude Include="Objects\BattleCity\Player\Player.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Manger\TileManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\BattleCity\Tile\WallTile.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\BattleCity\Tile\SteelTile.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\BattleCity\Tile\TreeTile.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\PlayScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -281,7 +296,22 @@
     <ClCompile Include="Objects\BattleCity\Character\CharacterAnimation.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\BattleCity\EditTiles.cpp">
+    <ClCompile Include="Objects\BattleCity\Player\Player.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Manger\TileManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\BattleCity\Tile\WallTile.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\BattleCity\Tile\TreeTile.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\BattleCity\Tile\SteelTile.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\PlayScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

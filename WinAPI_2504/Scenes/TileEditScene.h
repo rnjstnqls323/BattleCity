@@ -41,8 +41,7 @@ private:
 	EditType editType = BG;
 
 	vector<Texture*> sampleTextures;
-	vector<EditTile*> bgEditTiles;
-	vector<EditTile*> objEditTiles;
+
 
 	Texture* selectTexture;
 };
