@@ -1,10 +1,10 @@
 #pragma once
 
+
 enum TileType
 {
 	Wall, Steel, Tree, None
 };
-
 struct TileStat
 {
 	int life = 0;
@@ -21,7 +21,8 @@ public:
 	void UpdateWorld();
 	void Render();
 
-	virtual void Collision(Character* character, const Vector2& overlap);
+	virtual void Collision(RectCollider* rect, const Vector2& overlap);
+	virtual void BulletCollision(RectCollider* rect, const Vector2& overlap);
 	
 	Quad* GetImage() { return image; }
 

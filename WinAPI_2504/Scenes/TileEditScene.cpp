@@ -31,7 +31,8 @@ void TileEditScene::Update()
 
 void TileEditScene::Render()
 {
-	TileManager::Get()->RenderTile();
+	TileManager::Get()->RenderBGTile();
+	TileManager::Get()->RenderOBJTile();
 }
 
 void TileEditScene::GUIRender()

@@ -13,18 +13,22 @@ TileManager::~TileManager()
 //void TileManager::UpdateTile()
 //{
 //}
+void TileManager::RenderOBJTile()
+{
+	for (Tile* tile : objEditTiles)
+	{
+		tile->Render();
+		tile->RectCollider::Render();
+	}
+}
 
-void TileManager::RenderTile()
+void TileManager::RenderBGTile()
 {
 	for (Tile* tile : bgEditTiles)
 	{
 		tile->Render();
 	}
 
-	for (Tile* tile : objEditTiles)
-	{
-		tile->Render();
-	}
 }
 
 void TileManager::LoadTextures(wstring path)
@@ -125,7 +129,17 @@ void TileManager::LoadTile(string file)
 
 		Vector2 xy = reader->Vector();
 
-		Tile* tile = new Tile();
+		Tile* tile;
+		if (file.find(L"trees") != wstring::npos)
+			tile = new TreeTile();
+		else if (file.find(L"Wall_brick") != wstring::npos)
+			tile = new WallTile();
+		else if (file.find(L"Wall_steel") != wstring::npos)
+			tile = new SteelTile();
+		else
+			tile = new Tile();
+
+		
 		tile->GetImage()->GetMaterial()->SetBaseMap(file);
 		tile->SetLocalPosition(xy);
 		tile->UpdateWorld(); // 위치 적용
@@ -156,23 +170,16 @@ void TileManager::EditOBJTile()
 			}
 
 			// 새로운 타일 생성
-			Tile* objTile = nullptr;
+			Tile* objTile = new Tile();;
 
 			wstring filePath = selectTexture->GetFile();
-			if (filePath.find(L"trees") != wstring::npos)
-				objTile = new TreeTile();
-			else if (filePath.find(L"Wall_brick") != wstring::npos)
-				objTile = new WallTile();
-			else if (filePath.find(L"Wall_steel") != wstring::npos)
-				objTile = new SteelTile();
-			else
-				objTile = new Tile();  // 기본 타입
+
 
 			objTile->GetImage()->GetMaterial()->SetBaseMap(selectTexture);
 			objTile->SetLocalPosition(pos);
 			objTile->UpdateWorld();
 
-			objEditTiles.push_back(objTile);
+			objEditTiles.push_back({ objTile });
 
 			sort(objEditTiles.begin(), objEditTiles.end(), Tile::IsCompare);
 		}
@@ -195,6 +202,7 @@ void TileManager::EditBGTile()
 
 void TileManager::CheckCollider(Character* character)
 {
+	isHide = false;
 	for (Tile* tile : objEditTiles)
 	{
 		Vector2 overlap;
@@ -205,6 +213,7 @@ void TileManager::CheckCollider(Character* character)
 		
 		tile->Collision(character,overlap);
 
+		//불렛 콜리젼 어케할지고민하쇼
 	}
 }
 

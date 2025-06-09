@@ -6,8 +6,11 @@ public :
 	Player();
 	~Player();
 
+	void Update() override;
+
 private:
 	void CreateAnimation() override;
+	void Fire();
 
 private:
 	int life = 5;

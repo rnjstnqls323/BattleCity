@@ -175,6 +175,7 @@
     <ClInclude Include="Libraries\ImGui\ImGuiFileDialogConfig.h" />
     <ClInclude Include="Objects\Basic\GameObject.h" />
     <ClInclude Include="Objects\Basic\Quad.h" />
+    <ClInclude Include="Objects\BattleCity\Character\Bullet.h" />
     <ClInclude Include="Objects\BattleCity\Character\Character.h" />
     <ClInclude Include="Objects\BattleCity\Character\CharacterAnimation.h" />
     <ClInclude Include="Objects\BattleCity\Player\Player.h" />
@@ -184,6 +185,7 @@
     <ClInclude Include="Objects\Collider\CircleCollider.h" />
     <ClInclude Include="Objects\Collider\Collider.h" />
     <ClInclude Include="Objects\Collider\RectCollider.h" />
+    <ClInclude Include="Objects\Manger\BulletManager.h" />
     <ClInclude Include="Objects\Manger\DataManager.h" />
     <ClInclude Include="Objects\Manger\EventManager.h" />
     <ClInclude Include="Objects\BattleCity\EditTile.h" />
@@ -229,6 +231,7 @@
     </ClCompile>
     <ClCompile Include="Objects\Basic\GameObject.cpp" />
     <ClCompile Include="Objects\Basic\Quad.cpp" />
+    <ClCompile Include="Objects\BattleCity\Character\Bullet.cpp" />
     <ClCompile Include="Objects\BattleCity\Character\Character.cpp" />
     <ClCompile Include="Objects\BattleCity\Character\CharacterAnimation.cpp" />
     <ClCompile Include="Objects\BattleCity\Player\Player.cpp" />
@@ -238,6 +241,7 @@
     <ClCompile Include="Objects\Collider\CircleCollider.cpp" />
     <ClCompile Include="Objects\Collider\Collider.cpp" />
     <ClCompile Include="Objects\Collider\RectCollider.cpp" />
+    <ClCompile Include="Objects\Manger\BulletManager.cpp" />
     <ClCompile Include="Objects\Manger\DataManager.cpp" />
     <ClCompile Include="Objects\Manger\EventManager.cpp" />
     <ClCompile Include="Objects\BattleCity\EditTile.cpp" />

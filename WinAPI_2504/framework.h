@@ -23,7 +23,7 @@
 
 #define DIALOG ImGuiFileDialog::Instance()
 
-#define TILE_NUM 40
+#define TILE_NUM 25
 
 #include <windows.h>
 #include <string>
@@ -117,6 +117,8 @@ typedef function<void()> Event;
 #include "Objects/BattleCity/Tile/TreeTile.h"
 #include "Objects/BattleCity/Tile/SteelTile.h"
 
+#include "Objects/BattleCity/Character/Bullet.h"
+#include "Objects/Manger/BulletManager.h"
 
 #include "Objects/BattleCity/Character/CharacterAnimation.h"
 #include "Objects/BattleCity/Character/Character.h"

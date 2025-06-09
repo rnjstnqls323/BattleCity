@@ -14,7 +14,8 @@ private:
 public:
 	
 	//void UpdateTile();
-	void RenderTile();
+	void RenderOBJTile();
+	void RenderBGTile();
 	
 	void LoadTextures(wstring path);
 
@@ -32,16 +33,20 @@ public:
 	void SetSelectTexture(Texture* texture) { selectTexture = texture; }
 
 	void CheckCollider(Character* character);
+	bool IsHide() { return isHide; }
+	void SetHide(bool hide) { isHide = hide; }
 
 private:
 	int mapCol = TILE_NUM;
 	int mapRow = TILE_NUM;
 
 	bool isObjTile = false;
+	bool isHide = false;
 
 	vector<Texture*> sampleTextures;
 	vector<Tile*> bgEditTiles;
 	vector<Tile*> objEditTiles;
+
 
 	Texture* selectTexture;
 };
