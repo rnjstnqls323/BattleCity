@@ -11,7 +11,7 @@ GameManager::GameManager()
 	SCENE->AddScene("Edit", new TileEditScene());
 	SCENE->AddScene("Game", new PlayScene());
 
-	SCENE->ChangeScene("Edit");
+	SCENE->ChangeScene("Game");
 }
 
 GameManager::~GameManager()

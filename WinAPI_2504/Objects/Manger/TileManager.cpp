@@ -136,10 +136,10 @@ void TileManager::LoadTile(string file)
 
 void TileManager::EditOBJTile()
 {
-	if (Input::Get()->IsKeyPress(VK_SPACE) == false)
+	if (Input::Get()->IsKeyPress(VK_RBUTTON) == false)
 		return;
 
-	for (Tile* tile : objEditTiles)
+	for (Tile* tile : bgEditTiles)
 	{
 		if (tile->IsPointCollision(mousePos))
 		{

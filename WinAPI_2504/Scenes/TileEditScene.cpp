@@ -47,7 +47,7 @@ void TileEditScene::GUIRender()
 	const char* editTypeNames[] = { "BG", "OBJ" };
 
 	ImGui::ListBox("Edit Type", (int*)&editType, editTypeNames, 2);
-
+	
 	if (ImGui::Button("Create Tiles"))
 	{
 		CreateEditTiles();

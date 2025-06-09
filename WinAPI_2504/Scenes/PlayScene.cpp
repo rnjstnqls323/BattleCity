@@ -5,7 +5,7 @@ PlayScene::PlayScene()
 {
 	TileManager::Get();
 	TileManager::Get()->CreateTiles();
-	TileManager::Get()->LoadTile("Resources/TextData/Test3.map");
+	TileManager::Get()->LoadTile("Resources/TextData/Test5.map");
 
 	player = new Player;
 	player->SetLocalPosition(50, 50);

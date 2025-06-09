@@ -37,6 +37,8 @@ private:
 	int mapCol = TILE_NUM;
 	int mapRow = TILE_NUM;
 
+	bool isObjTile = false;
+
 	vector<Texture*> sampleTextures;
 	vector<Tile*> bgEditTiles;
 	vector<Tile*> objEditTiles;
