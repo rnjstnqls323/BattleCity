@@ -10,8 +10,5 @@ public :
 
 private:
 	void CreateAnimation() override;
-	void Fire();
 
-private:
-	int life = 5;
 };

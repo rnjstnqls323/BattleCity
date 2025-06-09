@@ -178,6 +178,7 @@
     <ClInclude Include="Objects\BattleCity\Character\Bullet.h" />
     <ClInclude Include="Objects\BattleCity\Character\Character.h" />
     <ClInclude Include="Objects\BattleCity\Character\CharacterAnimation.h" />
+    <ClInclude Include="Objects\BattleCity\Enemy\Enemy.h" />
     <ClInclude Include="Objects\BattleCity\Player\Player.h" />
     <ClInclude Include="Objects\BattleCity\Tile\SteelTile.h" />
     <ClInclude Include="Objects\BattleCity\Tile\TreeTile.h" />
@@ -234,6 +235,7 @@
     <ClCompile Include="Objects\BattleCity\Character\Bullet.cpp" />
     <ClCompile Include="Objects\BattleCity\Character\Character.cpp" />
     <ClCompile Include="Objects\BattleCity\Character\CharacterAnimation.cpp" />
+    <ClCompile Include="Objects\BattleCity\Enemy\Enemy.cpp" />
     <ClCompile Include="Objects\BattleCity\Player\Player.cpp" />
     <ClCompile Include="Objects\BattleCity\Tile\SteelTile.cpp" />
     <ClCompile Include="Objects\BattleCity\Tile\TreeTile.cpp" />

@@ -1,5 +1,11 @@
 #pragma once
 
+struct CharacterStat
+{
+	int life = 1;
+	string tag = "character";
+	Vector2 spawnPoint;
+};
 
 class Character :public RectCollider
 {
@@ -8,6 +14,7 @@ protected:
 	{
 		Idle, GoToUp, GoToDown, GoToLeft, GoToRight, Dead, CharacterStateEnd
 	};
+	
 public:
 	Character();
 	~Character();
@@ -18,15 +25,19 @@ public:
 	bool IsDead() { return isDead; }
 	void SetIsDead(bool dead) 
 	{ 
+		isDead = dead;
 		isDead ? curState = Dead : curState = Idle;
 	}
 
-	// ÃÑ¾Ë ½î´Â°Å ±¸ÇöÇÏ±â 
+	void ResolveBallCollision();
 
+	CharacterStat GetStat() { return stat; }
 protected:
+	virtual void Fire();
 	virtual void Move();
 	virtual void CreateAnimation() = 0;
 	void UpdateAnimation();
+	bool IsCharacterOut(Vector2 pos);
 
 protected:
 	bool isDead = false;
@@ -38,4 +49,6 @@ protected:
 	CharacterState curState = Idle;
 	CharacterAnimation* animation;
 	Transform* animationTransform;
+
+	CharacterStat stat;
 };

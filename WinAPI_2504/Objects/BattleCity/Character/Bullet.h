@@ -1,6 +1,6 @@
 #pragma once
 
-class Bullet : public CircleCollider
+class Bullet : public RectCollider
 {
 private:
 	const float BULLET_SPEED = 200.0f;
@@ -14,8 +14,11 @@ public:
 	void Update();
 
 	void Move();
+
+	string GetBulletTag() { return bulletTag; }
 private:
-	string tag;
+	Quad* quad;
+	string bulletTag;
 
 	Vector2 direction;
 };

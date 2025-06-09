@@ -132,9 +132,9 @@ void TileManager::LoadTile(string file)
 		Tile* tile;
 		if (file.find(L"trees") != wstring::npos)
 			tile = new TreeTile();
-		else if (file.find(L"Wall_brick") != wstring::npos)
+		else if (file.find(L"wall_brick") != wstring::npos)
 			tile = new WallTile();
-		else if (file.find(L"Wall_steel") != wstring::npos)
+		else if (file.find(L"wall_steel") != wstring::npos)
 			tile = new SteelTile();
 		else
 			tile = new Tile();
@@ -212,8 +212,23 @@ void TileManager::CheckCollider(Character* character)
 			continue;
 		
 		tile->Collision(character,overlap);
-
+		if (character->GetStat().tag == "enemy")
+		{
+			Enemy* enemy = (Enemy*)character;
+			int num = rand() % 4;
+			enemy->ChangeDir(num);
+		}
 		//ºÒ·¿ ÄÝ¸®Á¯ ¾îÄÉÇÒÁö°í¹ÎÇÏ¼î
+	}
+}
+
+void TileManager::CheckBulletCollider()
+{
+	for (Tile* tile : objEditTiles)
+	{
+		if (!tile->IsActive())
+			continue;
+		BulletManager::Get()->ResolveBallTileCollision(tile);
 	}
 }
 

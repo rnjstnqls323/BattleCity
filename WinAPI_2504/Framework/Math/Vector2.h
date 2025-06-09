@@ -37,6 +37,14 @@ struct Vector2 : public Float2
 			return false;
 		return true;
 	}
+	bool operator!=(const Vector2& other) const
+	{
+		if (this->x != other.x)
+			return true;
+		if (this->y != other.y)
+			return true;
+		return false;
+	}
 
 	void operator+=(const Vector2& other)
 	{

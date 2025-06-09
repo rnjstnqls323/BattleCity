@@ -2,6 +2,12 @@
 
 Player::Player()
 {
+	stat.life = 5;
+	stat.tag = "player";
+	stat.spawnPoint = PLAYER_HOME;
+
+	SetLocalPosition(stat.spawnPoint);
+	UpdateWorld();
 	CreateAnimation();
 }
 
@@ -25,28 +31,3 @@ void Player::CreateAnimation()
 	animation->LoadClip("Resources/Textures/BattleCity/Player/", "PLAYER_DEAD.xml", true);
 }
 
-void Player::Fire()
-{
-	if (Input::Get()->IsKeyDown(VK_SPACE))
-	{
-		switch (curState)
-		{
-		case Character::Idle:
-			BulletManager::Get()->Fire(this->GetLocalPosition(), Vector2::Right());
-			break;
-		case Character::GoToUp:
-			BulletManager::Get()->Fire(this->GetLocalPosition(), Vector2::Up());
-			break;
-		case Character::GoToDown:
-			BulletManager::Get()->Fire(this->GetLocalPosition(), Vector2::Down());
-			break;
-		case Character::GoToLeft:
-			BulletManager::Get()->Fire(this->GetLocalPosition(), Vector2::Left());
-			break;
-		case Character::GoToRight:
-			BulletManager::Get()->Fire(this->GetLocalPosition(), Vector2::Right());
-			break;
-		}
-		
-	}
-}

@@ -24,6 +24,9 @@
 #define DIALOG ImGuiFileDialog::Instance()
 
 #define TILE_NUM 25
+#define TILE_SIZE 25
+
+#define PLAYER_HOME Vector2(287,151);
 
 #include <windows.h>
 #include <string>
@@ -124,6 +127,7 @@ typedef function<void()> Event;
 #include "Objects/BattleCity/Character/Character.h"
 
 #include "Objects/BattleCity/Player/Player.h"
+#include "Objects/BattleCity/Enemy/Enemy.h"
 
 
 #include "Scenes/Scene.h"

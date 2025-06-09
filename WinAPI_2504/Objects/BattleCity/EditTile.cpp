@@ -1,6 +1,6 @@
 #include "Framework.h"
 
-Tile::Tile() : RectCollider(Vector2(25, 25))
+Tile::Tile() : RectCollider(Vector2(TILE_SIZE, TILE_SIZE))
 {
 	image = new Quad(L"Resources/Textures/BattleCity/BackGround/BackGround.png");
 	image->SetParent(this);
@@ -19,12 +19,16 @@ void Tile::UpdateWorld()
 
 void Tile::Render()
 {
+    if (!isActive)
+        return;
 	image->Render();
 	//RectCollider::Render();
 }
 
 void Tile::Collision(RectCollider* rect, const Vector2& overlap)
 {
+    if (!isActive)
+        return;
     Vector2 pos = rect->GetLocalPosition();
     Vector2 tilePos = GetLocalPosition();
 
@@ -50,10 +54,11 @@ void Tile::Collision(RectCollider* rect, const Vector2& overlap)
     rect->UpdateWorld();
 }
 
-void Tile::BulletCollision(RectCollider* rect, const Vector2& overlap)
+void Tile::BulletCollision(Bullet* bullet)
 {
-
+    bullet->SetActive(false);
 }
+
 
 
 

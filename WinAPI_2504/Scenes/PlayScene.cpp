@@ -8,22 +8,24 @@ PlayScene::PlayScene()
 	TileManager::Get()->LoadTile("Resources/TextData/Stage1.map");
 
 	player = new Player;
-	player->SetLocalPosition(50, 50);
-	player->UpdateWorld();
-	
-
+	enemy = new Enemy;
 }
 
 PlayScene::~PlayScene()
 {
 	delete player;
+	delete enemy;
 }
 
 void PlayScene::Update()
 {
 	player->Update();
-	TileManager::Get()->CheckCollider(player);
+	enemy->Update();
+
+	
 	BulletManager::Get()->Update();
+
+	CheckCollision();
 }
 
 void PlayScene::Render()
@@ -32,6 +34,7 @@ void PlayScene::Render()
 	{
 		TileManager::Get()->RenderBGTile();
 		player->Render();
+		enemy->Render();
 		TileManager::Get()->RenderOBJTile();
 	}
 	else
@@ -39,7 +42,20 @@ void PlayScene::Render()
 		TileManager::Get()->RenderBGTile();
 		TileManager::Get()->RenderOBJTile();
 		player->Render();
+		enemy->Render();
 	}
 
 	BulletManager::Get()->Render();
+
+}
+
+void PlayScene::CheckCollision()
+{
+	TileManager::Get()->CheckCollider(enemy);
+	TileManager::Get()->CheckCollider(player);
+
+	BulletManager::Get()->ResolveBallCharacterCollision(player);
+	BulletManager::Get()->ResolveBallCharacterCollision(enemy);
+
+	TileManager::Get()->CheckBulletCollider();
 }

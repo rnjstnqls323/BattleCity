@@ -16,6 +16,11 @@ public:
 
 	void Fire(Vector2 pos, Vector2 dir, string tag="player");
 
+	void ResolveBallTileCollision(Tile* tile);
+	void ResolveBallCharacterCollision(Character* Character);
+
+private:
+	bool IsOut(Bullet* bullet);
 private:
 	vector<Bullet*> bullets;
 };

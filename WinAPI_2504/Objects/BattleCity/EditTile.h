@@ -5,11 +5,8 @@ enum TileType
 {
 	Wall, Steel, Tree, None
 };
-struct TileStat
-{
-	int life = 0;
-	TileType type = None;
-};
+
+class Bullet;
 
 class Tile : public RectCollider
 {
@@ -22,7 +19,7 @@ public:
 	void Render();
 
 	virtual void Collision(RectCollider* rect, const Vector2& overlap);
-	virtual void BulletCollision(RectCollider* rect, const Vector2& overlap);
+	virtual void BulletCollision(Bullet* bullet);
 	
 	Quad* GetImage() { return image; }
 
@@ -31,12 +28,8 @@ public:
 		return a->GetLocalPosition().y > b->GetLocalPosition().y;
 	}
 
-	TileType GetTileType() { return stat.type; }
-
-
 protected:
 	
-	TileStat stat;
 	Vector2 overlap;
 	Quad* image;
 };

@@ -36,6 +36,8 @@ public:
 	bool IsHide() { return isHide; }
 	void SetHide(bool hide) { isHide = hide; }
 
+	void CheckBulletCollider();
+
 private:
 	int mapCol = TILE_NUM;
 	int mapRow = TILE_NUM;

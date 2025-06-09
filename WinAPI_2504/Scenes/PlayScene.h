@@ -10,7 +10,9 @@ public:
 
 	void Render() override;
 
+	void CheckCollision();
 
 private:
 	Player* player;
+	Enemy* enemy;
 };
