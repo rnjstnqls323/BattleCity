@@ -95,8 +95,7 @@ void TileManager::SaveTile(string file)
 	{
 		writer->WString(tile->GetImage()->GetMaterial()->GetBaseMap()->GetFile());
 		Vector2 pos = tile->GetLocalPosition();
-		writer->Float(pos.x);
-		writer->Float(pos.y);
+		writer->Vector({ pos.x, pos.y });
 	}
 	delete writer;
 }
@@ -123,12 +122,12 @@ void TileManager::LoadTile(string file)
 	for (UINT i = 0; i < objCount; i++)
 	{
 		wstring file = reader->WString();
-		float x = reader->Float();
-		float y = reader->Float();
+
+		Vector2 xy = reader->Vector();
 
 		Tile* tile = new Tile();
 		tile->GetImage()->GetMaterial()->SetBaseMap(file);
-		tile->SetLocalPosition(Vector2(x, y));
+		tile->SetLocalPosition(xy);
 		tile->UpdateWorld(); // 위치 적용
 		objEditTiles.push_back(tile);
 	}
