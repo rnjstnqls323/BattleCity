@@ -16,8 +16,8 @@ public:
 
 	void Fire(Vector2 pos, Vector2 dir, string tag="player");
 
-	void ResolveBallTileCollision(Tile* tile);
-	void ResolveBallCharacterCollision(Character* Character);
+	void ResolveBallTileCollision(Tile* tile, AStar*& aStar);
+	void ResolveBallCharacterCollision(Character* character);
 
 private:
 	bool IsOut(Bullet* bullet);

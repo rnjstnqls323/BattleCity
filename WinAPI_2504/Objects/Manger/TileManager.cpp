@@ -202,7 +202,6 @@ void TileManager::EditBGTile()
 
 void TileManager::CheckCollider(Character* character)
 {
-	isHide = false;
 	for (Tile* tile : objEditTiles)
 	{
 		Vector2 overlap;
@@ -212,24 +211,50 @@ void TileManager::CheckCollider(Character* character)
 			continue;
 		
 		tile->Collision(character,overlap);
-		if (character->GetStat().tag == "enemy")
-		{
-			Enemy* enemy = (Enemy*)character;
-			int num = rand() % 4;
-			enemy->ChangeDir(num);
-		}
-		//ºÒ·¿ ÄÝ¸®Á¯ ¾îÄÉÇÒÁö°í¹ÎÇÏ¼î
 	}
 }
 
-void TileManager::CheckBulletCollider()
+void TileManager::CheckBulletCollider(AStar*& aStar)
 {
 	for (Tile* tile : objEditTiles)
 	{
 		if (!tile->IsActive())
 			continue;
-		BulletManager::Get()->ResolveBallTileCollision(tile);
+		BulletManager::Get()->ResolveBallTileCollision(tile, aStar);
 	}
 }
+
+void TileManager::MakeNodes(vector<Node*>& nodes)
+{
+	for (Tile* tile : bgEditTiles)
+	{
+		//Vector2 tilePos = tile->GetGlobalPosition() + Vector2::Up() * tileSize.y * 0.25f;
+		Vector2 tilePos = tile->GetGlobalPosition();
+		Node* node = new Node(tilePos, nodes.size());
+
+		for (Tile* obj : objEditTiles)
+		{
+			if (obj->GetTileType() == Tree)
+				continue;
+			if (obj->IsPointCollision(tilePos))
+			{
+				node->SetState(Node::Obstacle);
+			}
+		}
+
+		nodes.push_back(node);
+	}
+}
+
+bool TileManager::IsPointCollision(Vector2 point)
+{
+	for (Tile* tile : objEditTiles)
+	{
+		if (tile->GetTileType() != Tree && tile->IsPointCollision(point))
+			return true;
+	}
+	return false;
+}
+
 
 

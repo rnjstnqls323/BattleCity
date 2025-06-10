@@ -32,6 +32,8 @@ public:
 	void ResolveBallCollision();
 
 	CharacterStat GetStat() { return stat; }
+	
+	
 protected:
 	virtual void Fire();
 	virtual void Move();
@@ -51,4 +53,5 @@ protected:
 	Transform* animationTransform;
 
 	CharacterStat stat;
+	
 };

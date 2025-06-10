@@ -2,6 +2,7 @@
 
 SteelTile::SteelTile()
 {
+	type = Steel;
 }
 
 

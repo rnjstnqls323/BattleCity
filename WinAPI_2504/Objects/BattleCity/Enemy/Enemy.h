@@ -1,9 +1,10 @@
 #pragma once
 
-enum Direction
+enum ChaseMode
 {
-	DirUp,DirDown,DirLeft,DirRight
+	NoneMode, Patrol, Chase, Attack
 };
+
 class Enemy :public Character
 {
 public:
@@ -11,18 +12,25 @@ public:
 	~Enemy();
 
 	void Update() override;
-	void ChangeDir(int num)
-	{
-		dirState = (Direction)num;
-	}
+	void SetPath(const vector<Vector2>& path) { this->path = path; }
+
+	void Fire() override;
+	void SetMode(ChaseMode mode) { this->mode = mode; }
+
+	ChaseMode GetMode() { return mode; }
 
 private:
 	void CreateAnimation() override;
 	void Move() override;
 
+	
+
 private:
 	int randNum = 0;
 
-	Direction dirState = DirUp;
+
+	ChaseMode mode = NoneMode;
 	Vector2 dir = Vector2::Up();
+	vector<Vector2> path;
+	Vector2 velocity;
 };

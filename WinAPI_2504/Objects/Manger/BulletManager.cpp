@@ -54,7 +54,7 @@ void BulletManager::Fire(Vector2 pos, Vector2 dir, string tag)
 	}
 }
 
-void BulletManager::ResolveBallTileCollision(Tile* tile)
+void BulletManager::ResolveBallTileCollision(Tile* tile, AStar*& aStar)
 {
 	for (Bullet* bullet : bullets)
 	{
@@ -65,6 +65,7 @@ void BulletManager::ResolveBallTileCollision(Tile* tile)
 			continue;
 
 		tile->BulletCollision(bullet);
+		aStar->DeleteNode(tile->GetGlobalPosition());
 	}
 }
 
@@ -93,7 +94,7 @@ bool BulletManager::IsOut(Bullet* bullet)
 		return true;
 	if (bullet->GetLocalPosition().x > CENTER_X)
 		return true;
-	if (bullet->GetLocalPosition().y > SCREEN_HEIGHT)
+	if (bullet->GetLocalPosition().y > 700)
 		return true;
 	return false;
 }

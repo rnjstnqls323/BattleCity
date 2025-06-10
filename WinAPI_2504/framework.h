@@ -110,10 +110,16 @@ typedef function<void()> Event;
 #include "Objects/Collider/Collider.h"
 #include "Objects/Collider/CircleCollider.h"
 #include "Objects/Collider/RectCollider.h"
+#include "Objects/Collider/LineCollider.h"
 
 #include "Objects/Manger/DataManager.h"
 #include "Objects/Manger/EventManager.h"
 #include "Objects/Manger/TileManager.h"
+
+#include "Objects/Algorithm/DNode.h"
+#include "Objects/Algorithm/Dijkstra.h"
+#include "Objects/Algorithm/Node.h"
+#include "Objects/Algorithm/AStar.h"
 
 #include "Objects/BattleCity/EditTile.h"
 #include "Objects/BattleCity/Tile/WallTile.h"

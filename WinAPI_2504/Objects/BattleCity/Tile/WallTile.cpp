@@ -2,6 +2,7 @@
 
 WallTile::WallTile()
 {
+	type = Wall;
 }
 
 WallTile::~WallTile()

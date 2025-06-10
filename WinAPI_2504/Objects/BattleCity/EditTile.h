@@ -28,8 +28,10 @@ public:
 		return a->GetLocalPosition().y > b->GetLocalPosition().y;
 	}
 
+	TileType GetTileType() { return type; }
+
 protected:
-	
+	TileType type = None;
 	Vector2 overlap;
 	Quad* image;
 };
