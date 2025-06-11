@@ -52,7 +52,7 @@ void TileManager::CreateTiles()
 {
 	DeleteTiles();
 
-	Vector2 size = sampleTextures[0]->GetSize();
+	Vector2 size = { 25,25 };
 	Vector2 startPos = Vector2(size.x * 0.5f, SCREEN_HEIGHT - size.y * 0.5f);
 
 	for (int y = 0; y < mapRow; y++)
@@ -121,6 +121,22 @@ void TileManager::LoadTile(string file)
 	{
 		wstring file = reader->WString();
 		bgEditTiles[i]->GetImage()->GetMaterial()->SetBaseMap(file);
+
+		Tile* tile = nullptr;  // Tile은 공통 부모 클래스라고 가정
+
+		if (file.find(L"trees") != wstring::npos)
+			tile = new TreeTile();
+		else if (file.find(L"wall_brick") != wstring::npos)
+			tile = new WallTile();
+		else if (file.find(L"wall_steel") != wstring::npos)
+			tile = new SteelTile();
+		else if (file.find(L"water") != wstring::npos)
+			tile = new WaterTile();
+		else
+			tile = new Tile(); // 기본 타입 처리 (선택사항)
+		
+		delete bgEditTiles[i];
+		bgEditTiles[i] = tile;
 	}
 
 	for (UINT i = 0; i < objCount; i++)
@@ -129,16 +145,16 @@ void TileManager::LoadTile(string file)
 
 		Vector2 xy = reader->Vector();
 
-		Tile* tile;
+		Tile* tile = nullptr;
+		
 		if (file.find(L"trees") != wstring::npos)
 			tile = new TreeTile();
 		else if (file.find(L"wall_brick") != wstring::npos)
 			tile = new WallTile();
 		else if (file.find(L"wall_steel") != wstring::npos)
 			tile = new SteelTile();
-		else
-			tile = new Tile();
-
+		else if (file.find(L"water") != wstring::npos)
+			tile = new WaterTile();
 		
 		tile->GetImage()->GetMaterial()->SetBaseMap(file);
 		tile->SetLocalPosition(xy);
@@ -255,6 +271,4 @@ bool TileManager::IsPointCollision(Vector2 point)
 	}
 	return false;
 }
-
-
 

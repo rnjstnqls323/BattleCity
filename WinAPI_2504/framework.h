@@ -44,6 +44,7 @@
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
+#pragma comment(lib, "dxguid.lib")
 
 //ImGui
 #include <imgui.h>
@@ -114,20 +115,22 @@ typedef function<void()> Event;
 
 #include "Objects/Manger/DataManager.h"
 #include "Objects/Manger/EventManager.h"
-#include "Objects/Manger/TileManager.h"
 
 #include "Objects/Algorithm/DNode.h"
 #include "Objects/Algorithm/Dijkstra.h"
 #include "Objects/Algorithm/Node.h"
+#include "Objects/Algorithm/Heap.h"
 #include "Objects/Algorithm/AStar.h"
 
 #include "Objects/BattleCity/EditTile.h"
 #include "Objects/BattleCity/Tile/WallTile.h"
 #include "Objects/BattleCity/Tile/TreeTile.h"
 #include "Objects/BattleCity/Tile/SteelTile.h"
+#include "Objects/BattleCity/Tile/WaterTile.h"
+
+#include "Objects/TileFactory.h"
 
 #include "Objects/BattleCity/Character/Bullet.h"
-#include "Objects/Manger/BulletManager.h"
 
 #include "Objects/BattleCity/Character/CharacterAnimation.h"
 #include "Objects/BattleCity/Character/Character.h"
@@ -135,6 +138,8 @@ typedef function<void()> Event;
 #include "Objects/BattleCity/Player/Player.h"
 #include "Objects/BattleCity/Enemy/Enemy.h"
 
+#include "Objects/Manger/TileManager.h"
+#include "Objects/Manger/BulletManager.h"
 
 #include "Scenes/Scene.h"
 #include "Framework/Manager/SceneManager.h"

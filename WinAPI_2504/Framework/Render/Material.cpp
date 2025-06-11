@@ -45,6 +45,17 @@ void Material::Set()
 	pixelShader->Set();
 }
 
+void Material::Set(int slot)
+{
+	if (baseMap)
+		baseMap->PSSet(slot);
+
+	colorBuffer->SetPS(0);
+
+	vertexShader->Set();
+	pixelShader->Set();
+}
+
 void Material::SetBaseMap(wstring file)
 {
 	baseMap = Texture::Add(file);

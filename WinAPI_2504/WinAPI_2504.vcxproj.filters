@@ -174,9 +174,6 @@
     <ClInclude Include="Objects\BattleCity\Tile\TreeTile.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scenes\PlayScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Objects\BattleCity\Character\Bullet.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -199,6 +196,21 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Objects\Algorithm\AStar.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Algorithm\Heap.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\InstancingScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\TileFactory.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\BattleCity\Tile\WaterTile.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\PlayScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -335,9 +347,6 @@
     <ClCompile Include="Objects\BattleCity\Tile\SteelTile.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scenes\PlayScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Objects\BattleCity\Character\Bullet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -362,6 +371,21 @@
     <ClCompile Include="Objects\Algorithm\AStar.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Objects\Algorithm\Heap.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\InstancingScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\BattleCity\Tile\WaterTile.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\TileFactory.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\PlayScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WinAPI_2504.rc">
@@ -384,5 +408,6 @@
     <FxCompile Include="Resources\Shaders\MultiTexture.hlsl" />
     <FxCompile Include="Resources\Shaders\Filter.hlsl" />
     <FxCompile Include="Resources\Shaders\Outline.hlsl" />
+    <FxCompile Include="Resources\Shaders\Instancing.hlsl" />
   </ItemGroup>
 </Project>

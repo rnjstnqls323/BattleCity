@@ -9,6 +9,7 @@ public:
 
 	void Render();	
 
+
 	Vector2 GetSize() const { return size; }
 
 private:

@@ -1,9 +1,5 @@
 #pragma once
 
-class Tile;
-class Character;
-class Node;
-class AStar;
 
 class TileManager :public Singleton<TileManager>
 {
@@ -44,7 +40,9 @@ public:
 	void MakeNodes(vector<Node*>& nodes);
 
 	bool IsPointCollision(Vector2 point);
-	
+
+	vector<Tile*> GetBgTile() { return bgEditTiles; }
+
 private:
 	int mapCol = TILE_NUM;
 	int mapRow = TILE_NUM;

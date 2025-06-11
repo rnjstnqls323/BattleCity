@@ -3,7 +3,7 @@
 
 enum TileType
 {
-	Wall, Steel, Tree, None
+	Wall, Steel, Tree, None, Water
 };
 
 class Bullet;

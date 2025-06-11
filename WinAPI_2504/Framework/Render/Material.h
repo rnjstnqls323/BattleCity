@@ -13,6 +13,7 @@ public:
 	void SetPixelShader(wstring file);
 
 	void Set();
+	void Set(int slot);
 	
 	void SetBaseMap(wstring file);
 	void SetBaseMap(Texture* texture) { baseMap = texture; }

@@ -2,16 +2,18 @@
 
 #include "Scenes/TileEditScene.h"
 #include "Scenes/PlayScene.h"
+#include "Scenes/InstancingScene.h"
 
 GameManager::GameManager()
 {
 	Create();
 		
 
-	SCENE->AddScene("Edit", new TileEditScene());
-	SCENE->AddScene("Game", new PlayScene());
+	//SCENE->AddScene("Edit", new TileEditScene());
+	//SCENE->AddScene("Game", new PlayScene());
+	SCENE->AddScene("Inst", new InstancingScene());
 
-	SCENE->ChangeScene("Game");
+	SCENE->ChangeScene("Inst");
 }
 
 GameManager::~GameManager()
